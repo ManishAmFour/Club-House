@@ -6,7 +6,9 @@
     <title>Sign-Up-Form</title>
   </head>
   <body>
-    <form>
+    <%console.log(locals)%>
+    <p><%= locals.messages%></p>
+    <form method="POST" action="/sign-up">
       <label>type your first name</label>
       <input name="fname" id="uname" />
       <label>type your last name</label>
@@ -17,6 +19,7 @@
       <input name="pword" id="pword" />
       <label>Confirm Your password</label>
       <input name="cpword" id="cpword" />
+      <input type="submit" value="submit" />
     </form>
   </body>
 </html>
