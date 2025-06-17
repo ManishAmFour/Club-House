@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const { validationResult, matchedData } = require("express-validator");
+const savingTheUser = require("../database/queries").savingTheUser;
 
 const signUpController = async (req, res) => {
   const errorMessages = validationResult(req);
@@ -9,9 +10,20 @@ const signUpController = async (req, res) => {
     });
   } else {
     const salt = 10;
-    const { pword } = matchedData(req);
+    let { pword } = matchedData(req);
+    const { fname } = req.body;
+    const { lname } = req.body;
+    const { emailName } = req.body;
+
     const savedPassword = bcrypt.hashSync(pword, salt);
-    console.log(savedPassword);
+    await savingTheUser(
+      fname,
+      lname,
+      emailName,
+      (pword = savedPassword),
+      (hash = salt)
+    );
+    res.redirect("/log-in");
   }
 };
 
