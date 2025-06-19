@@ -16,13 +16,7 @@ const signUpController = async (req, res) => {
     const { emailName } = req.body;
 
     const savedPassword = bcrypt.hashSync(pword, salt);
-    await savingTheUser(
-      fname,
-      lname,
-      emailName,
-      (pword = savedPassword),
-      (hash = salt)
-    );
+    await savingTheUser(fname, lname, emailName, (pword = savedPassword));
     res.redirect("/log-in");
   }
 };

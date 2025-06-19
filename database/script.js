@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS users(
     fname VARCHAR(255),
     lname VARCHAR(255),
     emailName VARCHAR(255),
-    pword VARCHAR(255),
-    hash VARCHAR(255)
+    pword VARCHAR(255)
+   
 );
 CREATE TABLE IF NOT EXISTS status(
     emailName VARCHAR(255),
