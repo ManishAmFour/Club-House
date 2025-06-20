@@ -1,6 +1,5 @@
 const express = require("express");
 const logIn = express.Router();
-const logInController = require("../controllers/logInController");
 const passport = require("../database/passport");
 
 logIn.get("/log-in", (req, res) => {
@@ -10,10 +9,9 @@ logIn.get("/log-in", (req, res) => {
 logIn.post(
   "/log-in",
   passport.authenticate("local", {
-    successRedirect: "/log-in",
+    successRedirect: "/",
     failureRedirect: "/sign-up",
-  }),
-  logInController
+  })
 );
 
 module.exports = logIn;

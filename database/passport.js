@@ -7,7 +7,6 @@ const customFields = { usernameField: "emailName", passwordField: "pword" };
 passport.use(
   new LocalStrategy(customFields, async (emailName, pword, done) => {
     const user = await accessingTheUser(emailName, pword);
-
     if (user) {
       return done(null, user);
     }
@@ -18,11 +17,14 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  console.log(user);
-  done(null, user[0].emailName);
+  const { emailname } = user[0];
+
+  const { status } = user[0];
+
+  done(null, { emailname: emailname, status: status });
 });
 passport.deserializeUser((user, done) => {
-  done(null, user[0].emailName);
+  done(null, user);
 });
 
 module.exports = passport;

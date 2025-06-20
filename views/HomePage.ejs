@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+  </head>
+  <body>
+    <%if(list){%>
+    <p>List of All messages:-</p>
+    <%for(let i = 0; i < list.length;i++){%> <%console.log(status)%>
+
+    <p><%=list[i].emailname%></p>
+    <%}%>
+    <p><%=list[i].messages%></p>
+    <%}%> <%}%>
+
+    <button>
+      <a href="/log-in"> Login </a>
+    </button>
+    <button>
+      <a href="/sign-up"> SignUp </a>
+    </button>
+  </body>
+</html>

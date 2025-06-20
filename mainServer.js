@@ -3,8 +3,10 @@ const session = require("express-session");
 const mainServer = express();
 const signUp = require("./routes/signUp");
 const logIn = require("./routes/log-in");
+const dashboard = require("./routes/dashboard");
 const path = require("path");
 const passport = require("passport");
+const HomePage = require("./routes/homepage");
 
 mainServer.set("view engine", "ejs");
 mainServer.set("views", path.join(__dirname, "views"));
@@ -28,5 +30,7 @@ mainServer.use(passport.session());
 
 mainServer.use(signUp);
 mainServer.use(logIn);
+mainServer.use(dashboard);
+mainServer.use(HomePage);
 
 mainServer.listen(5342);
