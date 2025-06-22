@@ -6,13 +6,19 @@
     <title>HomePage</title>
   </head>
   <body>
-    <%if(list){%>
-    <p>List of All messages:-</p>
-    <%for(let i = 0; i < list.length;i++){%> <%console.log(status)%>
+    <%if(name){%>
+    <p>Welcome <%=name%></p>
+    <button>
+      <a href="/dashboard">Create messages</a>
+    </button>
+    <%}%> <%if(list){%>
 
-    <p><%=list[i].emailname%></p>
-    <%}%>
-    <p><%=list[i].messages%></p>
+    <p>List of All messages:-</p>
+    <%for(let i = 0; i < list.length;i++){%>
+    <div>
+      <p><%if(status){%> <%=list[i].emailname%> <%}%><%=list[i].messages%></p>
+    </div>
+
     <%}%> <%}%>
 
     <button>

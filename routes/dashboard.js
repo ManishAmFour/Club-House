@@ -3,7 +3,11 @@ const dashboard = express.Router();
 const dashboardC = require("../controllers/dashboardC");
 
 dashboard.get("/dashboard", (req, res) => {
-  res.render("dashboard", { emailName: req.user });
+  let emailname;
+  if (req.user) {
+    emailname = req.user.emailname;
+  }
+  res.render("dashboard", { emailname: emailname });
 });
 
 dashboard.post("/dashboard", dashboardC);

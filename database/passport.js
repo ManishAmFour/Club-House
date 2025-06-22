@@ -17,11 +17,12 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
+  const { isadmin } = user[0];
   const { emailname } = user[0];
 
   const { status } = user[0];
 
-  done(null, { emailname: emailname, status: status });
+  done(null, { emailname: emailname, status: status, isadmin: isadmin });
 });
 passport.deserializeUser((user, done) => {
   done(null, user);

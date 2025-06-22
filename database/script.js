@@ -13,6 +13,11 @@ CREATE TABLE IF NOT EXISTS status(
     status VARCHAR(255)
 );
 
+CREATE TABLE IF NOT EXISTS astatus(
+    emailName VARCHAR(255),
+    status VARCHAR(255)
+);
+
 CREATE TABLE IF NOT EXISTS dashboard(
     emailName VARCHAR(255),
     messages VARCHAR(255),

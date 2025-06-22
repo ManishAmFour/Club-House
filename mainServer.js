@@ -7,6 +7,7 @@ const dashboard = require("./routes/dashboard");
 const path = require("path");
 const passport = require("passport");
 const HomePage = require("./routes/homepage");
+const member = require("./routes/member");
 
 mainServer.set("view engine", "ejs");
 mainServer.set("views", path.join(__dirname, "views"));
@@ -28,6 +29,7 @@ mainServer.use(
 mainServer.use(passport.initialize());
 mainServer.use(passport.session());
 
+mainServer.use(member);
 mainServer.use(signUp);
 mainServer.use(logIn);
 mainServer.use(dashboard);

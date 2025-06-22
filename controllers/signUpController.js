@@ -1,8 +1,12 @@
 const bcrypt = require("bcrypt");
 const { validationResult, matchedData } = require("express-validator");
 const savingTheUser = require("../database/queries").savingTheUser;
-
+const grantingMembership = require("../database/queries").grantingMembership;
 const signUpController = async (req, res) => {
+  let isadmin = false;
+  if (req.body.isadmin) {
+    isadmin = true;
+  }
   const errorMessages = validationResult(req);
   if (!errorMessages.isEmpty()) {
     res.render("signUp", {
@@ -16,7 +20,16 @@ const signUpController = async (req, res) => {
     const { emailName } = req.body;
 
     const savedPassword = bcrypt.hashSync(pword, salt);
-    await savingTheUser(fname, lname, emailName, (pword = savedPassword));
+    await savingTheUser(
+      fname,
+      lname,
+      emailName,
+      (pword = savedPassword),
+      isadmin
+    );
+    if (isadmin) {
+      await grantingMembership(emailName);
+    }
     res.redirect("/log-in");
   }
 };
