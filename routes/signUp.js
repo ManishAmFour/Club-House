@@ -9,7 +9,16 @@ const {
 } = require("express-validator");
 
 signUp.get("/sign-up", (req, res) => {
-  res.render("signUp", { messages: "please register" });
+  if (req.user) {
+    res.send(
+      `
+      <p>first log out to register new users</p>
+      <a href="/log-out">Log out</a>
+      `
+    );
+  } else {
+    res.render("signUp", { messages: "please register" });
+  }
 });
 signUp.post(
   "/sign-up",

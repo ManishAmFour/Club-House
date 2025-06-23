@@ -22,10 +22,8 @@ WHERE emailName = ($2);
 
 const extractingAllMessages = async () => {
   const command = `
-  SELECT users.emailName,dashboard.messages 
-  FROM users 
-  INNER JOIN dashboard ON
-  users.emailName = dashboard.emailName
+  SELECT emailName,messages 
+  FROM dashboard  
   ;`;
   const { rows } = await pool.query(command);
 
@@ -58,6 +56,15 @@ VALUES($1,$2)
   await pool.query(command4, [emailName, isadmin]);
 };
 
+const deletingTheMessaage = async (emailName) => {
+  const command = `UPDATE dashboard
+SET messages = ($2)
+WHERE emailName = ($1);
+`;
+
+  await pool.query(command, [emailName, null]);
+};
+
 const accessingTheUser = async (emailName, password) => {
   const commmand = `SELECT first_name.pword,first_name.emailName,first_name.status,astatus.status AS isadmin FROM(SELECT users.pword, users.emailName,status.status
   FROM users 
@@ -86,4 +93,5 @@ module.exports = {
   savingTheUser,
   accessingTheUser,
   savingTheMessage,
+  deletingTheMessaage,
 };

@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS dashboard(
     messages VARCHAR(255),
     timestamp VARCHAR(255)   
 );`;
+
   await pool.query(command);
 }
 

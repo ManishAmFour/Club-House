@@ -8,9 +8,11 @@ const path = require("path");
 const passport = require("passport");
 const HomePage = require("./routes/homepage");
 const member = require("./routes/member");
+const LogOut = require("./routes/LogOut");
 
 mainServer.set("view engine", "ejs");
 mainServer.set("views", path.join(__dirname, "views"));
+mainServer.set(express.static(__dirname));
 mainServer.use(express.urlencoded());
 
 require("dotenv").config();
@@ -34,5 +36,6 @@ mainServer.use(signUp);
 mainServer.use(logIn);
 mainServer.use(dashboard);
 mainServer.use(HomePage);
+mainServer.use(LogOut);
 
 mainServer.listen(5342);
