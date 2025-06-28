@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const { validationResult, matchedData } = require("express-validator");
-const savingTheUser = require("../database/queries").savingTheUser;
-const grantingMembership = require("../database/queries").grantingMembership;
+const savingTheUser = require("../models/queries").savingTheUser;
+const grantingMembership = require("../models/queries").grantingMembership;
 const signUpController = async (req, res) => {
   let isadmin = false;
   if (req.body.isadmin) {

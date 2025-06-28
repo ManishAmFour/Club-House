@@ -1,5 +1,5 @@
 const extractingAllMessages =
-  require("../database/queries").extractingAllMessages;
+  require("../models/queries").extractingAllMessages;
 
 const homeController = async (req, res) => {
   //console.log(req.user);

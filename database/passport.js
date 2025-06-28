@@ -1,5 +1,5 @@
 const passport = require("passport");
-const accessingTheUser = require("./queries").accessingTheUser;
+const accessingTheUser = require("../models/queries").accessingTheUser;
 const LocalStrategy = require("passport-local").Strategy;
 
 const customFields = { usernameField: "emailName", passwordField: "pword" };

@@ -1,4 +1,4 @@
-const pool = require("./connection");
+const pool = require("../database/connection");
 const bcrypt = require("bcrypt");
 
 const savingTheMessage = async (emailName, message) => {

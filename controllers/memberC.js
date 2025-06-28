@@ -1,4 +1,4 @@
-const grantingMembership = require("../database/queries").grantingMembership;
+const grantingMembership = require("../models/queries").grantingMembership;
 
 const memberC = async (req, res) => {
   const { spword } = req.body;

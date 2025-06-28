@@ -1,4 +1,4 @@
-const savingTheMessage = require("../database/queries").savingTheMessage;
+const savingTheMessage = require("../models/queries").savingTheMessage;
 
 const dashboardC = async (req, res) => {
   const { message } = req.body;
