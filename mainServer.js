@@ -9,6 +9,7 @@ const passport = require("passport");
 const HomePage = require("./routes/homepage");
 const member = require("./routes/member");
 const LogOut = require("./routes/LogOut");
+const port = process.env.PORT || 4000;
 
 mainServer.set("view engine", "ejs");
 mainServer.set("views", path.join(__dirname, "views"));
@@ -39,4 +40,4 @@ mainServer.use(dashboard);
 mainServer.use(HomePage);
 mainServer.use(LogOut);
 
-mainServer.listen(5342);
+mainServer.listen(port);
