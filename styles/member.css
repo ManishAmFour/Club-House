@@ -1,0 +1,99 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  padding: 1rem;
+}
+
+/* Form Container */
+form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Labels */
+label {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Input Field */
+input[name="spword"] {
+  padding: 0.75rem 1rem;
+  border: 2px solid #dcdde1;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[name="spword"]:focus {
+  border-color: #fcb69f;
+  box-shadow: 0 0 10px rgba(252, 182, 159, 0.5);
+  outline: none;
+}
+
+/* Submit Button */
+input[type="submit"] {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 6px 16px rgba(255, 117, 140, 0.3);
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(to right, #ff6a8f, #ff6fd8);
+  transform: scale(1.05);
+}
+
+/* Entrance Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  form {
+    padding: 2rem 1.5rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  input[type="submit"] {
+    font-size: 0.95rem;
+  }
+}

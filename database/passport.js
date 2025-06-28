@@ -7,7 +7,6 @@ const customFields = { usernameField: "emailName", passwordField: "pword" };
 passport.use(
   new LocalStrategy(customFields, async (emailName, pword, done) => {
     const user = await accessingTheUser(emailName, pword);
-    console.log(user);
     if (!user || user === "user not found") {
       return done(null, undefined);
     }

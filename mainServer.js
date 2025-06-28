@@ -12,10 +12,11 @@ const LogOut = require("./routes/LogOut");
 
 mainServer.set("view engine", "ejs");
 mainServer.set("views", path.join(__dirname, "views"));
-mainServer.set(express.static(__dirname));
-mainServer.use(express.urlencoded());
+mainServer.use(express.static("styles"));
 
 require("dotenv").config();
+mainServer.use(express.json());
+mainServer.use(express.urlencoded());
 
 mainServer.use(
   session({

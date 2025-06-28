@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
-    <link href="/styles/home.css" rel="stylesheet" type="text/css" />
+    <link href="home.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <%if(name){%>
@@ -13,28 +13,28 @@
       <a href="/dashboard">Create messages</a>
     </button>
     <%}%> <%if(list){%>
-
-    <p>List of All messages:-</p>
+    <p class="main-heading">List of All messages:-</p>
     <%for(let i = 0; i < list.length;i++){%> <%if(list[i].messages !== null){%>
-    <div>
-      <p>
-        <%if(status){%> <%=list[i].emailname%> <%}%> <%=list[i].messages%>
-        <%if(adminStatus === 'true'){%>
+    <div class="main-box">
+      <%if(status){%>
+      <p class="email-box"><%=list[i].emailname%></p>
+      <%}%>
+      <p class="message-box"><%=list[i].messages%></p>
+      <%if(adminStatus === 'true'){%>
+      <button class="delete-box">
+        <form method="post" action="/">
+          <input
+            style="background-color: #e74c3c; border-style: none"
+            type="submit"
+            id="<%=list[i].emailname%>"
+            name="<%=list[i].emailname%>"
+            value="delete the message"
+            required
+          />
+        </form>
+      </button>
 
-        <button>
-          <form method="post" action="/">
-            <input
-              class="delete-box"
-              type="submit"
-              id="<%=list[i].emailname%>"
-              name="emailName"
-              value="<%=list[i].emailname%>"
-              required
-            />
-          </form>
-        </button>
-        <%}%>
-      </p>
+      <%}%>
     </div>
     <%}%> <%}%> <%}%>
 

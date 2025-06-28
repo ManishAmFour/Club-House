@@ -1,0 +1,99 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Full Page Layout */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Form Container */
+form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.6s ease forwards;
+}
+
+/* Label Styling */
+label {
+  margin-bottom: 0.4rem;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+/* Input Fields */
+input[name="emailName"],
+input[name="pword"] {
+  padding: 0.75rem 1rem;
+  border: 2px solid #dcdde1;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[name="emailName"]:focus,
+input[name="pword"]:focus {
+  border-color: #66a6ff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 166, 255, 0.4);
+}
+
+/* Submit Button */
+input[type="submit"] {
+  padding: 0.75rem;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(to right, #5a67d8, #6b46c1);
+  transform: scale(1.05);
+}
+
+/* Entrance Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  form {
+    padding: 2rem 1.5rem;
+  }
+
+  input[type="submit"] {
+    font-size: 0.95rem;
+  }
+}

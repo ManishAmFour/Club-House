@@ -2,7 +2,7 @@ const extractingAllMessages =
   require("../database/queries").extractingAllMessages;
 
 const homeController = async (req, res) => {
-  console.log(req.user);
+  //console.log(req.user);
   let name;
   let adminStatus;
   let status = false;
