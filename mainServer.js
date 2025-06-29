@@ -9,7 +9,7 @@ const passport = require("passport");
 const HomePage = require("./routes/homepage");
 const member = require("./routes/member");
 const LogOut = require("./routes/LogOut");
-const port = process.env.PORT || 4000;
+const port = 5342 || 4000;
 
 mainServer.set("view engine", "ejs");
 mainServer.set("views", path.join(__dirname, "views"));
